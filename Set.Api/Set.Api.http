@@ -1,0 +1,6 @@
+@Set.Api_HostAddress = http://localhost:5098
+
+GET {{Set.Api_HostAddress}}/
+Accept: application/json
+
+###
