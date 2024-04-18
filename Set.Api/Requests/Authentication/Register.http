@@ -4,8 +4,8 @@ POST {{host}}/api/auth/register
 Content-Type: application/json
 
 {
-    "firstName": "Sven",
-    "lastName": "Imholz",
-    "email": "svenimholz@icloud.com",
-    "password": "Test1234!"
+  "firstName": "Sven",
+  "lastName": "Imholz",
+  "email": "svenimholz@icloud.com",
+  "password": "Test1234!"
 }

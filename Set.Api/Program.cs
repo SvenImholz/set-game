@@ -1,4 +1,5 @@
-using Set.Application.Services.Authentication;
+using Set.Application;
+using Set.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,7 +8,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
-builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
+builder.Services
+    .AddApplication()
+    .AddInfrastructure(builder.Configuration);
 
 var app = builder.Build();
 
