@@ -12,12 +12,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Controllers\" />
-      <Folder Include="Requests\" />
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\Set.Application\Set.Application.csproj" />
+      <ProjectReference Include="..\Set.Contracts\Set.Contracts.csproj" />
     </ItemGroup>
 
 </Project>
