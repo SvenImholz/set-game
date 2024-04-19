@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Set.Api.Common.Errors;
-using Set.Api.Filters;
 using Set.Application;
 using Set.Infrastructure;
 
