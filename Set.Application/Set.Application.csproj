@@ -14,8 +14,4 @@
         <ProjectReference Include="..\Set.Domain\Set.Domain.csproj"/>
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Common\Errors\" />
-    </ItemGroup>
-
 </Project>
