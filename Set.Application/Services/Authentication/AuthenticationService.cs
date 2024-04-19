@@ -1,10 +1,12 @@
+using Set.Application.Common.Errors;
 using Set.Application.Common.Interfaces.Authentication;
 using Set.Application.Common.Interfaces.Persistence;
 using Set.Domain.Entities;
 
 namespace Set.Application.Services.Authentication;
 
-public class AuthenticationService : IAuthenticationService {
+public class AuthenticationService : IAuthenticationService
+{
     readonly IJwtTokenGenerator _jwtTokenGenerator;
     readonly IUserRepository _userRepository;
 
@@ -22,9 +24,7 @@ public class AuthenticationService : IAuthenticationService {
     {
         // Validate 
         if (_userRepository.GetUserByEmail(email) is not null)
-        {
-            throw new Exception("User with email already exists.");
-        }
+            throw new DuplicateEmailException();
 
         // Create user
         var user = new User
@@ -42,26 +42,23 @@ public class AuthenticationService : IAuthenticationService {
 
         return new AuthenticationResult(
         user,
-        Token: token);
+        token);
     }
 
     public AuthenticationResult Login(string email, string password)
     {
         // Validate that the user exists
         if (_userRepository.GetUserByEmail(email) is not User user)
-        {
             throw new Exception("User with email does not exist.");
-        }
+
         // Validate that the password is correct
         if (user.Password != password)
-        {
             throw new Exception("Invalid password.");
-        }
         // Create JWT Token
         var token = _jwtTokenGenerator.GenerateToken(user);
 
         return new AuthenticationResult(
         user,
-        Token: token);
+        token);
     }
 }

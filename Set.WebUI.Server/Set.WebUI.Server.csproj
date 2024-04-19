@@ -4,11 +4,11 @@
         <TargetFramework>net8.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
-      <UserSecretsId>23beea82-30e7-445d-9d9b-b59db6ad3b19</UserSecretsId>
-  </PropertyGroup>
+        <UserSecretsId>23beea82-30e7-445d-9d9b-b59db6ad3b19</UserSecretsId>
+    </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Set.Infrastructure\Set.Infrastructure.csproj" />
+        <ProjectReference Include="..\Set.Infrastructure\Set.Infrastructure.csproj"/>
     </ItemGroup>
 
 </Project>
