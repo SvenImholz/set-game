@@ -1,8 +1,10 @@
 using System.Diagnostics;
+using ErrorOr;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.Extensions.Options;
+using Set.Api.Common.Http;
 
 namespace Set.Api.Common.Errors;
 
@@ -90,8 +92,11 @@ public class SetProblemDetailsFactory : ProblemDetailsFactory
         {
             problemDetails.Extensions["traceId"] = traceId;
         }
-        
-        problemDetails.Extensions["test"] = "test";
+
+        if (httpContext?.Items["Errors"] is List<Error> errors)
+        {
+            problemDetails.Extensions.Add(HttpContextItemKeys.Errors, errors.Select(e => e.Code));
+        }
 
         _configure?.Invoke(new() { HttpContext = httpContext!, ProblemDetails = problemDetails });
     }
