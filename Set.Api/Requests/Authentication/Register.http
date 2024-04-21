@@ -1,5 +1,6 @@
 @host= https://localhost:7052
 
+### Good request
 POST {{host}}/api/auth/register
 Content-Type: application/json
 
@@ -9,3 +10,15 @@ Content-Type: application/json
   "email": "svenimholz@icloud.com",
   "password": "Test1234!"
 }
+
+### Bad validation request
+POST {{host}}/api/auth/register
+Content-Type: application/json
+
+{
+  "firstName": "Sven",
+  "lastName": "Imholz",
+  "email": "svenimholzicloud.com",
+  "password": "Tes12"
+}
+

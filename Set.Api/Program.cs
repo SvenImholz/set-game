@@ -1,20 +1,12 @@
-using Microsoft.AspNetCore.Mvc.Infrastructure;
-using Set.Api.Common.Errors;
+using Set.Api;
 using Set.Application;
 using Set.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
 builder.Services.AddApplication();
 builder.Services.AddInfrastructure(builder.Configuration);
-builder.Services.AddControllers();
-
-builder.Services.AddSingleton<ProblemDetailsFactory, SetProblemDetailsFactory>();
+builder.Services.AddPresentation();
 
 var app = builder.Build();
 
