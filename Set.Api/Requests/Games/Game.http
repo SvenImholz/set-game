@@ -1,0 +1,15 @@
+@host= https://localhost:7052
+
+### Create new game
+
+POST {{host}}/api/games
+Content-Type: application/json
+
+{
+}
+
+### Get games
+
+GET {{host}}/api/games/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiYTg3MmJkYS04ZDY1LTRhNjQtYjhiNi02ZWI3MGJhMzQ4NjMiLCJnaXZlbl9uYW1lIjoiU3ZlbiIsImZhbWlseV9uYW1lIjoiSW1ob2x6IiwianRpIjoiZTExMTQ2ZTUtY2EzNy00ZjE0LWI5ZGYtMzk4M2FiMGMwYzRhIiwiZXhwIjoxNzEzNzA5NTU2LCJpc3MiOiJTdmVuSW1ob2x6IiwiYXVkIjoiU3ZlbkltaG9seiJ9.dQcuz0CJ0gW2tPLc3Y2uHs7nPS-Y8Lun-jDzCV1UaR0
+ 

@@ -3,12 +3,15 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Set.Api.Controllers;
 
+[Route("/error")]
 public class ErrorsController : ControllerBase
 {
-    [Route("/error")]
+    [HttpGet]
     public IActionResult Error()
     {
-        Exception? exception = HttpContext.Features.Get<IExceptionHandlerFeature>()?.Error;
+        Exception? exception =
+            HttpContext.Features.Get<IExceptionHandlerFeature>()?.Error;
+
         return Problem();
     }
 }
