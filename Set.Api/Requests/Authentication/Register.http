@@ -11,7 +11,7 @@ Content-Type: application/json
   "password": "Test1234!"
 }
 
-### Bad validation request
+### Bad request | Multple validation errors
 POST {{host}}/api/auth/register
 Content-Type: application/json
 
@@ -22,3 +22,13 @@ Content-Type: application/json
   "password": "Tes12"
 }
 
+### Bad request | Single validation error
+POST {{host}}/api/auth/register
+Content-Type: application/json
+
+{
+  "firstName": "Sven",
+  "lastName": "Imholz",
+  "email": "svenimholz@icloud.com",
+  "password": "Tes12"
+}
