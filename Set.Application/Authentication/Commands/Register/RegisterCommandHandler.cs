@@ -4,45 +4,50 @@ using Set.Application.Authentication.Common;
 using Set.Application.Common.Interfaces.Authentication;
 using Set.Application.Common.Interfaces.Persistence;
 using Set.Domain.Common.Errors;
-using Set.Domain.Entities;
+using Set.Domain.Player;
 
 namespace Set.Application.Authentication.Commands.Register;
 
-public class RegisterCommandHandler : IRequestHandler<RegisterCommand, ErrorOr<AuthenticationResult>>
+public class
+    RegisterCommandHandler : IRequestHandler<RegisterCommand,
+    ErrorOr<AuthenticationResult>>
 {
     readonly IJwtTokenGenerator _jwtTokenGenerator;
     readonly IUserRepository _userRepository;
-    
-    public RegisterCommandHandler(IUserRepository userRepository, IJwtTokenGenerator jwtTokenGenerator)
+
+    public RegisterCommandHandler(
+        IUserRepository userRepository,
+        IJwtTokenGenerator jwtTokenGenerator)
     {
         _userRepository = userRepository;
         _jwtTokenGenerator = jwtTokenGenerator;
     }
 
-    public async Task<ErrorOr<AuthenticationResult>> Handle(RegisterCommand command, CancellationToken cancellationToken)
+    public async Task<ErrorOr<AuthenticationResult>> Handle(
+        RegisterCommand command,
+        CancellationToken cancellationToken)
     {
         await Task.CompletedTask;
-        
+
         // Validate 
         if (_userRepository.GetUserByEmail(command.Email) is not null)
-            return Errors.User.DuplicateEmail; 
+            return Errors.User.DuplicateEmail;
 
         // Create user
-        var user = new User
-        {
-            FirstName = command.FirstName,
-            LastName = command.LastName,
-            Email = command.Email,
-            Password = command.Password
-        };
+        var player = Player.Create(
+        command.FirstName,
+        command.LastName,
+        command.Email,
+        command.Password);
 
-        _userRepository.Add(user);
+
+        _userRepository.Add(player);
 
         // Create JWT Token
-        var token = _jwtTokenGenerator.GenerateToken(user);
+        var token = _jwtTokenGenerator.GenerateToken(player);
 
         return new AuthenticationResult(
-        user,
+        player,
         token);
     }
 }

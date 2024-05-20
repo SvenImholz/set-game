@@ -1,20 +1,20 @@
 using Set.Domain.Common.Models;
 
-namespace Set.Domain.Game.ValueObjects;
+namespace Set.Domain.Deck.ValueObjects;
 
-public sealed class GameId : ValueObject
+public sealed class DeckId : ValueObject
 {
     public Guid Value { get; }
-
-    GameId(Guid value)
+    DeckId(Guid value)
     {
         Value = value;
     }
 
-    public static GameId CreateUnique()
+    public static DeckId CreateUnique()
     {
-        return new GameId(Guid.NewGuid());
+        return new DeckId(Guid.NewGuid());
     }
+    
     override public IEnumerable<object> GetEqualityComponents()
     {
         yield return Value;

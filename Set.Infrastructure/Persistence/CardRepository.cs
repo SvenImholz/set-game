@@ -1,5 +1,5 @@
 using Set.Application.Common.Interfaces.Persistence;
-using Set.Domain.Entities;
+using Set.Domain.Deck.Entities;
 
 namespace Set.Infrastructure.Persistence;
 

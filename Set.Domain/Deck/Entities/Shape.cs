@@ -1,3 +1,3 @@
-namespace Set.Domain.Entities;
+namespace Set.Domain.Deck.Entities;
 
 public enum Shape { Oval, Squiggle, Diamond }

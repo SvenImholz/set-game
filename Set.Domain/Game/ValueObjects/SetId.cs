@@ -1,4 +1,4 @@
-using Set.Domain.Models;
+using Set.Domain.Common.Models;
 
 namespace Set.Domain.Game.ValueObjects;
 

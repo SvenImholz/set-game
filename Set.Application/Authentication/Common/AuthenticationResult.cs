@@ -1,7 +1,7 @@
-using Set.Domain.Entities;
+using Set.Domain.Player;
 
 namespace Set.Application.Authentication.Common;
 
 public record AuthenticationResult(
-    User User,
+    Player Player,
     string Token);

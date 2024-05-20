@@ -1,8 +1,8 @@
-using Set.Domain.Entities;
+using Set.Domain.Player;
 
 namespace Set.Application.Common.Interfaces.Authentication;
 
 public interface IJwtTokenGenerator
 {
-    string GenerateToken(User user);
+    string GenerateToken(Player player);
 }

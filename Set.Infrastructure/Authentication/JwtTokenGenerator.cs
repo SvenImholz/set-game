@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -5,7 +6,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Set.Application.Common.Interfaces.Authentication;
 using Set.Application.Common.Services;
-using Set.Domain.Entities;
+using Set.Domain.Player;
 using JwtRegisteredClaimNames=
     Microsoft.IdentityModel.JsonWebTokens.JwtRegisteredClaimNames;
 
@@ -22,7 +23,7 @@ public class JwtTokenGenerator : IJwtTokenGenerator
         _jwtSettings = jwtOptions.Value;
     }
 
-    public string GenerateToken(User user)
+    public string GenerateToken(Player player)
     {
         var signingCredentials = new SigningCredentials(
         new SymmetricSecurityKey(
@@ -31,9 +32,9 @@ public class JwtTokenGenerator : IJwtTokenGenerator
 
         var claims = new[]
         {
-            new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
-            new Claim(JwtRegisteredClaimNames.GivenName, user.FirstName),
-            new Claim(JwtRegisteredClaimNames.FamilyName, user.LastName),
+            new Claim(JwtRegisteredClaimNames.Sub, player.PlayerId.ToString()),
+            new Claim(JwtRegisteredClaimNames.GivenName, player.FirstName),
+            new Claim(JwtRegisteredClaimNames.FamilyName, player.LastName),
             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
         };
         var securityToken = new JwtSecurityToken(
