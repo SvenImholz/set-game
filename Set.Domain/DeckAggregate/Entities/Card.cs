@@ -1,7 +1,8 @@
+using Set.Domain.Common.Enums;
 using Set.Domain.Common.Models;
 using Set.Domain.Deck.ValueObjects;
 
-namespace Set.Domain.Deck.Entities;
+namespace Set.Domain.DeckAggregate.Entities;
 
 public sealed class Card
    : Entity<CardId>
@@ -21,7 +22,6 @@ public sealed class Card
     }
     
     public static Card Create(
-       
         Color color,
         Fill fill,
         Number number,
