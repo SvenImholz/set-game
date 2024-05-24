@@ -1,5 +1,5 @@
 using Set.Application.Common.Interfaces.Persistence;
-using Set.Domain.Player;
+using Set.Domain.PlayerAggregate;
 
 namespace Set.Infrastructure.Persistence;
 

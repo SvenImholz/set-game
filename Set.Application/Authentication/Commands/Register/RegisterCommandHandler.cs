@@ -4,7 +4,7 @@ using Set.Application.Authentication.Common;
 using Set.Application.Common.Interfaces.Authentication;
 using Set.Application.Common.Interfaces.Persistence;
 using Set.Domain.Common.Errors;
-using Set.Domain.Player;
+using Set.Domain.PlayerAggregate;
 
 namespace Set.Application.Authentication.Commands.Register;
 

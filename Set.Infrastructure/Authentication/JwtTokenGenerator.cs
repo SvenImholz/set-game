@@ -1,4 +1,3 @@
-using System.Diagnostics;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -6,7 +5,8 @@ using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Set.Application.Common.Interfaces.Authentication;
 using Set.Application.Common.Services;
-using Set.Domain.Player;
+using Set.Domain.PlayerAggregate;
+
 using JwtRegisteredClaimNames=
     Microsoft.IdentityModel.JsonWebTokens.JwtRegisteredClaimNames;
 
@@ -32,7 +32,7 @@ public class JwtTokenGenerator : IJwtTokenGenerator
 
         var claims = new[]
         {
-            new Claim(JwtRegisteredClaimNames.Sub, player.PlayerId.ToString()),
+            new Claim(JwtRegisteredClaimNames.Sub, player.PlayerId.ToString()!),
             new Claim(JwtRegisteredClaimNames.GivenName, player.FirstName),
             new Claim(JwtRegisteredClaimNames.FamilyName, player.LastName),
             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())

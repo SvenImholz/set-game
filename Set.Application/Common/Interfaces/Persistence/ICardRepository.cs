@@ -1,4 +1,4 @@
-using Set.Domain.Deck.Entities;
+using Set.Domain.DeckAggregate.Entities;
 
 namespace Set.Application.Common.Interfaces.Persistence;
 
