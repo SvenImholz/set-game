@@ -1,20 +1,21 @@
 using Set.Domain.Common.Models;
 
-namespace Set.Domain.Game.ValueObjects;
+namespace Set.Domain.GameAggregate.ValueObjects;
 
-public sealed class GameId : ValueObject
+public sealed class SetId : ValueObject
 {
     public Guid Value { get; }
-
-    GameId(Guid value)
+    
+    SetId(Guid value)
     {
         Value = value;
     }
-
-    public static GameId CreateUnique()
+    
+    public static SetId CreateUnique()
     {
-        return new GameId(Guid.NewGuid());
+        return new SetId(Guid.NewGuid());
     }
+    
     override public IEnumerable<object> GetEqualityComponents()
     {
         yield return Value;

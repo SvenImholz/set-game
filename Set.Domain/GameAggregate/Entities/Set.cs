@@ -1,7 +1,7 @@
 using Set.Domain.Common.Models;
-using Set.Domain.Game.ValueObjects;
+using Set.Domain.GameAggregate.ValueObjects;
 
-namespace Set.Domain.Game.Entities;
+namespace Set.Domain.GameAggregate.Entities;
 
 public sealed class Set : Entity<SetId>
 {

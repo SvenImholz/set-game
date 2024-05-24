@@ -1,6 +1,6 @@
 using Set.Domain.Common.Enums;
 using Set.Domain.Common.Models;
-using Set.Domain.Deck.ValueObjects;
+using Set.Domain.DeckAggregate.ValueObjects;
 
 namespace Set.Domain.DeckAggregate.Entities;
 

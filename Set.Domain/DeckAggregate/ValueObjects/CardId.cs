@@ -1,6 +1,6 @@
 using Set.Domain.Common.Models;
 
-namespace Set.Domain.Deck.ValueObjects;
+namespace Set.Domain.DeckAggregate.ValueObjects;
 
 public class CardId : ValueObject
 {

@@ -1,8 +1,8 @@
 using Set.Domain.Common.Models;
-using Set.Domain.Player.ValueObjects;
-using Set.Domain.Game.ValueObjects;
+using Set.Domain.GameAggregate.ValueObjects;
+using Set.Domain.PlayerAggregate.ValueObjects;
 
-namespace Set.Domain.Player;
+namespace Set.Domain.PlayerAggregate;
 
 public class Player : AggregateRoot<PlayerId>
 {

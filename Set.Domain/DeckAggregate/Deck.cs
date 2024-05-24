@@ -1,8 +1,9 @@
+using Set.Domain.Common.Enums;
 using Set.Domain.Common.Models;
-using Set.Domain.Deck.Entities;
-using Set.Domain.Deck.ValueObjects;
+using Set.Domain.DeckAggregate.Entities;
+using Set.Domain.DeckAggregate.ValueObjects;
 
-namespace Set.Domain.Deck;
+namespace Set.Domain.DeckAggregate;
 
 public sealed class Deck : AggregateRoot<DeckId>
 {

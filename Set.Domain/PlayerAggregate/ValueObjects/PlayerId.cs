@@ -1,6 +1,6 @@
 using Set.Domain.Common.Models;
 
-namespace Set.Domain.Player.ValueObjects;
+namespace Set.Domain.PlayerAggregate.ValueObjects;
 
 public class PlayerId : ValueObject
 {

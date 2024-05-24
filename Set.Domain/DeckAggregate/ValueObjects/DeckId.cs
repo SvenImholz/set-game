@@ -1,19 +1,18 @@
 using Set.Domain.Common.Models;
 
-namespace Set.Domain.Game.ValueObjects;
+namespace Set.Domain.DeckAggregate.ValueObjects;
 
-public sealed class SetId : ValueObject
+public sealed class DeckId : ValueObject
 {
     public Guid Value { get; }
-    
-    SetId(Guid value)
+    DeckId(Guid value)
     {
         Value = value;
     }
-    
-    public static SetId CreateUnique()
+
+    public static DeckId CreateUnique()
     {
-        return new SetId(Guid.NewGuid());
+        return new DeckId(Guid.NewGuid());
     }
     
     override public IEnumerable<object> GetEqualityComponents()
