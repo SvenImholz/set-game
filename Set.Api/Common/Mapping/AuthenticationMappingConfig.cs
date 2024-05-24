@@ -8,7 +8,6 @@ namespace Set.Api.Common.Mapping;
 
 public class AuthenticationMappingConfig : IRegister
 {
-
     public void Register(TypeAdapterConfig config)
     {
         config.NewConfig<RegisterRequest, RegisterCommand>();
