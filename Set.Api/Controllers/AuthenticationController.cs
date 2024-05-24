@@ -3,7 +3,6 @@ using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Set.Application.Authentication.Commands.Register;
-using Set.Application.Authentication.Common;
 using Set.Application.Authentication.Queries.Login;
 using Set.Contracts.Authentication;
 using Set.Domain.Common.Errors;
@@ -22,7 +21,7 @@ public class AuthenticationController(ISender sender, IMapper mapper) : ApiContr
         var authResult = await sender.Send(command);
 
         return authResult.Match(
-        authResult => Ok(mapper.Map<AuthenticationResponse>(authResult)),
+        result => Ok(mapper.Map<AuthenticationResponse>(result)),
         Problem);
 
     }
@@ -38,7 +37,7 @@ public class AuthenticationController(ISender sender, IMapper mapper) : ApiContr
             return Problem(statusCode: StatusCodes.Status401Unauthorized, title: authResult.FirstError.Description);
 
         return authResult.Match(
-        authResult => Ok(mapper.Map<AuthenticationResponse>(authResult)),
+        result => Ok(mapper.Map<AuthenticationResponse>(result)),
         Problem);
     }
 

@@ -1,4 +1,4 @@
-using Set.Domain.Player;
+using Set.Domain.PlayerAggregate;
 
 namespace Set.Application.Authentication.Common;
 
