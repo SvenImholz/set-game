@@ -1,3 +1,3 @@
-namespace Set.Domain.Deck.Entities;
+namespace Set.Domain.Common.Enums;
 
 public enum Color { Red, Green, Purple }
