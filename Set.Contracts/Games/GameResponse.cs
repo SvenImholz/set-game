@@ -4,7 +4,7 @@ namespace Set.Contracts.Games;
 
 public record GameResponse(
     Guid Id,
-    PlayerResponse? Player,
+    PlayerResponse Player,
     DeckResponse Deck,
     List<SetResponse> Sets,
     string State,

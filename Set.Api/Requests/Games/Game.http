@@ -1,5 +1,5 @@
 @host=https://localhost:7052
-@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJTZXQuRG9tYWluLlBsYXllckFnZ3JlZ2F0ZS5WYWx1ZU9iamVjdHMuUGxheWVySWQiLCJnaXZlbl9uYW1lIjoiU3ZlbiIsImZhbWlseV9uYW1lIjoiSW1ob2x6IiwianRpIjoiNTQ1ZGU2NTktMDNhNC00NDlhLThhYWMtMzMzYzNkNmMyZGQyIiwiZXhwIjoxNzE3MjQxMzk0LCJpc3MiOiJTdmVuSW1ob2x6IiwiYXVkIjoiU3ZlbkltaG9seiJ9.6j0ZxhJsWcd6xo6g3oD8wALDP1ANo6jFUiiv44Yz-x8
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJTZXQuRG9tYWluLlBsYXllckFnZ3JlZ2F0ZS5WYWx1ZU9iamVjdHMuUGxheWVySWQiLCJnaXZlbl9uYW1lIjoiU3ZlbiIsImZhbWlseV9uYW1lIjoiSW1ob2x6IiwianRpIjoiM2IxZWRiNjUtYzIxYS00OWFhLTkzMmEtYjkxNWI3MDdiOGZlIiwiZXhwIjoxNzE3MjQ4NDY1LCJpc3MiOiJTdmVuSW1ob2x6IiwiYXVkIjoiU3ZlbkltaG9seiJ9.LWufbOK9hoRi02n2GUl3IEYnO8ZfaXqcFw5cbcuOOV8
 
 ### Create new game
 POST {{host}}/api/games
@@ -7,8 +7,9 @@ Content-Type: application/json
 Authorization: Bearer {{token}}
 
 {
-  "playerId": "f0724256-82e3-4b15-86eb-51e8b2ab4669"
+  "PlayerId": "00000000-0000-0000-0000-000000000000"
 }
+
 
 ### Get games
 GET {{host}}/api/games/

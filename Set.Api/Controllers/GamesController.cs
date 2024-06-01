@@ -1,11 +1,13 @@
+using MapsterMapper;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
-
+using Set.Application.Games.Commands.CreateGame;
 using Set.Contracts.Games;
 
 namespace Set.Api.Controllers;
 
 [Route("api/games/")]
-public class GamesController : ApiController
+public class GamesController(IMapper mapper, ISender mediatorSender) : ApiController
 {
     [HttpGet]
     public IActionResult ListGames()
@@ -14,9 +16,11 @@ public class GamesController : ApiController
     }
     
     [HttpPost]
-    public IActionResult CreateGame(CreateGameRequest request)
+    public async Task<IActionResult> CreateGame(CreateGameRequest request)
     {
-        return Ok(request);
+        var command = mapper.Map<CreateGameCommand>(request);
+        var createGameResult = await mediatorSender.Send(command);
+        return Ok(createGameResult);
     }
     
 }
