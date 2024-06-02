@@ -6,9 +6,9 @@ namespace Set.Domain.PlayerAggregate;
 
 public class Player : AggregateRoot<PlayerId>
 {
-    Player(PlayerId playerId, string firstName, string lastName,
+    Player(PlayerId id, string firstName, string lastName,
         string email,
-        string password) : base(playerId)
+        string password) : base(id)
     {
         FirstName = firstName;
         LastName = lastName;
