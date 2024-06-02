@@ -7,7 +7,7 @@ namespace Set.Domain.GameAggregate;
 
 public sealed class Game : AggregateRoot<GameId>
 {
-    Game(GameId gameId, DeckId deckId, PlayerId? playerId) : base(gameId)
+    Game(GameId gameId, DeckId deckId, PlayerId playerId) : base(gameId)
     {
         DeckId = deckId;
         PlayerId = playerId;
@@ -20,6 +20,6 @@ public sealed class Game : AggregateRoot<GameId>
         playerId
         );
 
-    public new PlayerId? PlayerId { get; set; }
+    public PlayerId PlayerId { get; set; }
     public DeckId DeckId { get; }
 }
