@@ -1,5 +1,3 @@
 namespace Set.Contracts.Games;
 
-public record CreateGameRequest(
-    Guid PlayerId
-);
+public record CreateGameRequest;
