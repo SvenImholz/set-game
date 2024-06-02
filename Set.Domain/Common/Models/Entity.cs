@@ -1,9 +1,9 @@
 namespace Set.Domain.Common.Models;
 
-public abstract class Entity<TId>(TId playerId): IEquatable<Entity<TId>>
+public abstract class Entity<TId>(TId id): IEquatable<Entity<TId>>
     where TId : notnull
 {
-    public TId PlayerId { get; } = playerId;
+    public TId Id { get; } = id;
 
     public bool Equals(Entity<TId>? other)
     {
@@ -12,10 +12,10 @@ public abstract class Entity<TId>(TId playerId): IEquatable<Entity<TId>>
 
     override public bool Equals(object? obj)
     {
-        return obj is Entity<TId> entity && PlayerId.Equals(entity.PlayerId);
+        return obj is Entity<TId> entity && Id.Equals(entity.Id);
     }
-    
-    override public int GetHashCode() => PlayerId.GetHashCode();
+
+    override public int GetHashCode() => Id.GetHashCode();
 
     public static bool operator ==(Entity<TId> left, Entity<TId> right)
     {
