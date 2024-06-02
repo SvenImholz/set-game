@@ -6,5 +6,5 @@ using Set.Domain.PlayerAggregate.ValueObjects;
 namespace Set.Application.Games.Commands.CreateGame;
 
 public record CreateGameCommand(
-    PlayerId PlayerId
+    Guid PlayerId
 ) : IRequest<ErrorOr<Game>>;
