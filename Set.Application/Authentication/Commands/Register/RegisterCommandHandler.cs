@@ -13,13 +13,13 @@ public class
     ErrorOr<AuthenticationResult>>
 {
     readonly IJwtTokenGenerator _jwtTokenGenerator;
-    readonly IUserRepository _userRepository;
+    readonly IPlayerRepository _playerRepository;
 
     public RegisterCommandHandler(
-        IUserRepository userRepository,
+        IPlayerRepository playerRepository,
         IJwtTokenGenerator jwtTokenGenerator)
     {
-        _userRepository = userRepository;
+        _playerRepository = playerRepository;
         _jwtTokenGenerator = jwtTokenGenerator;
     }
 
@@ -30,7 +30,7 @@ public class
         await Task.CompletedTask;
 
         // Validate 
-        if (_userRepository.GetUserByEmail(command.Email) is not null)
+        if (_playerRepository.GetPlayerByEmail(command.Email) is not null)
             return Errors.User.DuplicateEmail;
 
         // Create user
@@ -41,7 +41,7 @@ public class
         command.Password);
 
 
-        _userRepository.Add(player);
+        _playerRepository.Add(player);
 
         // Create JWT Token
         var token = _jwtTokenGenerator.GenerateToken(player);
