@@ -2,8 +2,8 @@ using Set.Domain.PlayerAggregate;
 
 namespace Set.Application.Common.Interfaces.Persistence;
 
-public interface IUserRepository
+public interface IPlayerRepository
 {
-    Player? GetUserByEmail(string email);
+    Player? GetPlayerByEmail(string email);
     void Add(Player player);
 }
