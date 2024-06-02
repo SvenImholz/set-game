@@ -8,7 +8,7 @@ namespace Set.Domain.DeckAggregate;
 public sealed class Deck : AggregateRoot<DeckId>
 {
     readonly List<Card> _cards;
-    private Deck(DeckId deckPlayerId) : base(deckPlayerId)
+    private Deck(DeckId deckId) : base(deckId)
     {
         _cards = new List<Card>();
         foreach (Color color in Enum.GetValues(typeof(Color)))
