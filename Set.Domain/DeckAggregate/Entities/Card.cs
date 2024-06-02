@@ -8,12 +8,12 @@ public sealed class Card
    : Entity<CardId>
 {
     private Card(
-        CardId cardPlayerId,
+        CardId cardId,
         Color color,
         Fill fill,
         Number number,
         Shape shape) : base
-        (cardPlayerId)
+        (cardId)
     {
         Color = color;
         Fill = fill;
