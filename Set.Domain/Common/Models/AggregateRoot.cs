@@ -1,4 +1,4 @@
 namespace Set.Domain.Common.Models;
 
-public abstract class AggregateRoot<TId>(TId playerId) : Entity<TId>(playerId)
+public abstract class AggregateRoot<TId>(TId id) : Entity<TId>(id)
     where TId : notnull;
