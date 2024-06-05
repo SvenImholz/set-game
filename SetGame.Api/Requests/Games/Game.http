@@ -1,0 +1,15 @@
+@host=https://localhost:7052
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJTZXRHYW1lLkRvbWFpbi5QbGF5ZXJBZ2dyZWdhdGUuVmFsdWVPYmplY3RzLlBsYXllcklkIiwiZ2l2ZW5fbmFtZSI6IlN2ZW4iLCJmYW1pbHlfbmFtZSI6IkltaG9seiIsImp0aSI6ImJhMjQ5MTRiLTE4OTQtNDE5Yi04YzlmLTk0YzRhNDM2ZmU1NSIsImV4cCI6MTcxNzU5MjY1NCwiaXNzIjoiU3ZlbkltaG9seiIsImF1ZCI6IlN2ZW5JbWhvbHoifQ.5Z2fxhPfCz-t5Lz1h0640VHNgbAvP4U0wEcFSayvtz4
+@playerId=00000000-0000-0000-0000-000000000000
+
+### Create new game
+
+POST {{host}}/api/players/{{playerId}}/games
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{}
+
+### Get games
+GET {{host}}/api/players/{{playerId}}/games
+Authorization: Bearer {{token}}
