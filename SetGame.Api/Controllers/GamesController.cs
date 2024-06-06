@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using SetGame.Application.Common.Interfaces.Persistence;
 using SetGame.Application.Games.Commands.CreateGame;
 using SetGame.Contracts.Games;
+using SetGame.Domain.GameAggregate;
+using SetGame.Domain.PlayerAggregate;
 
 namespace SetGame.Api.Controllers;
 
@@ -22,7 +24,13 @@ public class GamesController(
     [HttpGet]
     public async Task<IActionResult> ListGames(Guid playerId)
     {
-        return Ok(Array.Empty<string>());
+        Player player = playerRepository.GetPlayerById(playerId) ??
+                        throw new Exception(
+                        "Player not found");
+        await Task.CompletedTask;
+        List<Game> games = gameRepository.GetAllGamesFromPlayer(player.Id);
+
+        return Ok(games);
     }
 
     [HttpPost]
