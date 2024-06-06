@@ -8,15 +8,10 @@ using SetGame.Domain.PlayerAggregate.ValueObjects;
 
 namespace SetGame.Application.Games.Commands.CreateGame;
 
-public class CreateGameCommandHandler : IRequestHandler<CreateGameCommand,
-    ErrorOr<Game>>
+public class CreateGameCommandHandler(IGameRepository gameRepository)
+    : IRequestHandler<CreateGameCommand,
+        ErrorOr<Game>>
 {
-    private readonly IGameRepository _gameRepository;
-
-    public CreateGameCommandHandler(IGameRepository gameRepository)
-    {
-        _gameRepository = gameRepository;
-    }
 
     public async Task<ErrorOr<Game>> Handle(
         CreateGameCommand request,
@@ -28,7 +23,7 @@ public class CreateGameCommandHandler : IRequestHandler<CreateGameCommand,
         playerId: PlayerId.Create(request.PlayerId)
         );
         // Persist game
-        _gameRepository.Add(game);
+        gameRepository.Add(game);
 
         // Return game
         return game;

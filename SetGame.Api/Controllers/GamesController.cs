@@ -4,16 +4,23 @@ using MediatR;
 
 using Microsoft.AspNetCore.Mvc;
 
+using SetGame.Application.Common.Interfaces.Persistence;
 using SetGame.Application.Games.Commands.CreateGame;
 using SetGame.Contracts.Games;
 
 namespace SetGame.Api.Controllers;
 
 [Route("api/players/{playerId:guid}/games")]
-public class GamesController(IMapper mapper, ISender mediatorSender) : ApiController
+public class GamesController(
+    IMapper mapper,
+    ISender mediatorSender,
+    IGameRepository
+        gameRepository,
+    IPlayerRepository playerRepository) :
+    ApiController
 {
     [HttpGet]
-    public IActionResult ListGames(Guid playerId)
+    public async Task<IActionResult> ListGames(Guid playerId)
     {
         return Ok(Array.Empty<string>());
     }

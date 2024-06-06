@@ -5,11 +5,17 @@ namespace SetGame.Infrastructure.Persistence;
 
 public class PlayerRepository : IPlayerRepository
 {
+    private static readonly List<Player> Players = [];
 
-    readonly static List<Player> _users = new();
     public Player? GetPlayerByEmail(string email)
     {
-        return _users.SingleOrDefault(u => u.Email == email);
+        return Players.SingleOrDefault(u => u.Email == email);
     }
-    public void Add(Player player) { _users.Add(player); }
+
+    public Player? GetPlayerById(Guid playerId)
+    {
+        return Players.SingleOrDefault(u => u.Id.Value == playerId);
+    }
+
+    public void Add(Player player) { Players.Add(player); }
 }
